@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+            rel="stylesheet"
+        />
+        <title>Calculator</title>
+    </head>
+    <body>
+        <div class="container">
+            <form action="" class="calculator" name="calc">
+                <input
+                    type="text"
+                    readonly
+                    name="txt"
+                    class="value"
+                    id="input"
+                />
+                <span class="num clear" onclick="calc.txt.value = ''"
+                    ><i>C</i></span
+                >
+                <span class="num" onclick="handleClickNumber('/')"
+                    ><i>/</i></span
+                >
+                <span class="num" onclick="handleClickNumber('*')"
+                    ><i>*</i></span
+                >
+                <span class="num" onclick="handleClickNumber('7')"
+                    ><i>7</i></span
+                >
+                <span class="num" onclick="handleClickNumber('8')"
+                    ><i>8</i></span
+                >
+                <span class="num" onclick="handleClickNumber('9')"
+                    ><i>9</i></span
+                >
+                <span class="num" onclick="handleClickNumber('-')"
+                    ><i>-</i></span
+                >
+                <span class="num" onclick="handleClickNumber('4')"
+                    ><i>4</i></span
+                >
+                <span class="num" onclick="handleClickNumber('5')"
+                    ><i>5</i></span
+                >
+                <span class="num" onclick="handleClickNumber('6')"
+                    ><i>6</i></span
+                >
+                <span class="num plus" onclick="handleClickNumber('+')"
+                    ><i>+</i></span
+                >
+                <span class="num" onclick="handleClickNumber('1')"
+                    ><i>1</i></span
+                >
+                <span class="num" onclick="handleClickNumber('2')"
+                    ><i>2</i></span
+                >
+                <span class="num" onclick="handleClickNumber('3')"
+                    ><i>3</i></span
+                >
+                <span class="num" onclick="handleClickNumber('0')"
+                    ><i>0</i></span
+                >
+                <span class="num" onclick="handleClickNumber('00')"
+                    ><i>00</i></span
+                >
+                <span class="num" onclick="calc.txt.value += '.'"
+                    ><i>.</i></span
+                >
+                <span class="num equal" onclick="handleClickEqual()"
+                    ><i>=</i></span
+                >
+            </form>
+        </div>
+    </body>
+
+    <script>
+        const input = document.getElementById('input');
+        const handleClickEqual = () => {
+            try {
+                if (input.value && input.value !== 'Syntax Error') {
+                    input.value = eval(input.value);
+                }
+            } catch (err) {
+                input.value = 'Syntax Error';
+            }
+        };
+
+        const handleClickNumber = (value) => {
+            if (input.value === 'Syntax Error') {
+                input.value = value;
+            } else {
+                input.value += value;
+            }
+        };
+    </script>
+</html>
